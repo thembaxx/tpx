@@ -3,6 +3,7 @@ import {
   createRootRoute,
   HeadContent,
   Outlet,
+  ScriptOnce,
   Scripts,
 } from "@tanstack/react-router"
 import "@fontsource/geist-sans/300.css"
@@ -46,7 +47,15 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <HeadContent />
       </head>
       <body>
+        <ScriptOnce>
+          {`document.documentElement.classList.toggle(
+            'dark',
+            localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+            )`}
+        </ScriptOnce>
+
         {children}
+
         <Scripts />
       </body>
     </html>

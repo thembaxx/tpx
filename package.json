@@ -9,7 +9,9 @@
     "serve": "vite preview",
     "test": "vitest run",
     "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "auth": "pnpm dlx @better-auth/cli@latest",
+    "auth:generate": "pnpm dlx @better-auth/cli@latest generate --y --output ./lib/server/schema/auth.schema.ts && prettier --write ./lib/server/schema/auth.schema.ts"
   },
   "dependencies": {
     "@fontsource/geist-sans": "^5.2.5",
@@ -21,6 +23,8 @@
     "@tanstack/react-start": "^1.114.25",
     "@tanstack/router-plugin": "^1.114.25",
     "@tanstack/vite-config": "^0.1.0",
+    "@vercel/postgres": "^0.10.0",
+    "better-auth": "^1.2.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.483.0",

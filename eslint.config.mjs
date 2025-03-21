@@ -9,5 +9,6 @@ export default antfu({
   rules: {
     "eslint-comments/no-unlimited-disable": "off",
     "style/member-delimiter-style": "off",
+    "node/prefer-global/process": "off",
   },
 })
