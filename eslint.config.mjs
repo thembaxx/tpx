@@ -1,21 +1,13 @@
-import { defineConfig } from "eslint/config";
-import globals from "globals";
-import js from "@eslint/js";
-import tseslint from "typescript-eslint";
-import pluginReact from "eslint-plugin-react";
+import antfu from "@antfu/eslint-config"
 
-export default defineConfig([
-  { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
-  { files: ["**/*.js"], languageOptions: { sourceType: "script" } },
-  {
-    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
-    languageOptions: { globals: { ...globals.browser, ...globals.node } },
+export default antfu({
+  formatters: true,
+  react: true,
+  stylistic: {
+    quotes: "double",
   },
-  {
-    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
-    plugins: { js },
-    extends: ["js/recommended", "plugin:react/jsx-runtime"],
+  rules: {
+    "eslint-comments/no-unlimited-disable": "off",
+    "style/member-delimiter-style": "off",
   },
-  tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
-]);
+})

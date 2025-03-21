@@ -1,14 +1,15 @@
 {
   "name": "psx",
+  "type": "module",
   "private": true,
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "vite --port 3000",
     "build": "vite build && publint --strict",
     "serve": "vite preview",
     "test": "vitest run",
-    "lint": "vite --lint"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
     "@fontsource/geist-sans": "^5.2.5",
@@ -31,6 +32,8 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^4.10.2",
+    "@eslint-react/eslint-plugin": "^1.37.0",
     "@eslint/js": "^9.22.0",
     "@prisma/extension-optimize": "^1.1.8",
     "@testing-library/dom": "^10.4.0",
@@ -38,12 +41,18 @@
     "@types/node": "^22.13.10",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
+    "@unocss/eslint-plugin": "^66.0.0",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.22.0",
+    "eslint-plugin-format": "^1.0.1",
     "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
     "jsdom": "^26.0.0",
+    "lint-staged": "^15.5.0",
     "prisma": "^6.5.0",
+    "simple-git-hooks": "^2.12.1",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.27.0",
     "vite": "^6.2.2",
@@ -65,6 +74,12 @@
         "eslint": "9"
       }
     }
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   },
   "eslintConfig": {
     "extends": [

@@ -1,6 +1,6 @@
 // app.config.ts
-import { defineConfig } from "@tanstack/react-start/config";
-import viteTsConfigPaths from "vite-tsconfig-paths";
+import { defineConfig } from "@tanstack/react-start/config"
+import viteTsConfigPaths from "vite-tsconfig-paths"
 
 export default defineConfig({
   vite: {
@@ -11,4 +11,4 @@ export default defineConfig({
       }),
     ],
   },
-});
+})

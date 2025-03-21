@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client"
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 export async function getUser(email: string) {
   try {
@@ -8,11 +8,12 @@ export async function getUser(email: string) {
       where: {
         email,
       },
-    });
+    })
 
-    return res;
-  } catch (error) {
-    console.debug(error);
-    return null;
+    return res
+  }
+  catch (error) {
+    console.error(error)
+    return null
   }
 }

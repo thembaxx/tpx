@@ -1,16 +1,15 @@
-import { defineConfig, mergeConfig } from "vite";
-import viteReact from "@vitejs/plugin-react";
-import tailwindcss from "@tailwindcss/vite";
-import { tanstackViteConfig } from "@tanstack/vite-config";
+import path, { resolve } from "node:path"
+import { fileURLToPath } from "node:url"
+import tailwindcss from "@tailwindcss/vite"
 
-import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
-import { resolve } from "node:path";
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite"
+import { tanstackViteConfig } from "@tanstack/vite-config"
 
-import path from "path";
-import { fileURLToPath } from "url";
+import viteReact from "@vitejs/plugin-react"
+import { defineConfig, mergeConfig } from "vite"
 
-const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
-const __dirname = path.dirname(__filename); // get the name of the directory
+const __filename = fileURLToPath(import.meta.url) // get the resolved path to the file
+const __dirname = path.dirname(__filename) // get the name of the directory
 
 // https://vitejs.dev/config/
 const config = defineConfig({
@@ -30,12 +29,12 @@ const config = defineConfig({
       "@": resolve(__dirname, "./"),
     },
   },
-});
+})
 
 export default mergeConfig(
   config,
   tanstackViteConfig({
     entry: "./app/index.ts",
     srcDir: "./app",
-  })
-);
+  }),
+)

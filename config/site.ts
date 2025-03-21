@@ -1,11 +1,11 @@
-export type SiteConfig = typeof siteConfig;
+export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
   name: "TPX",
   description: "Still designing the future",
   version: "0.0.1",
   baseUrl:
-    process.env.NODE_ENV === "development"
+    import.meta.env.MODE === "development"
       ? "http://localhost:3000"
       : "https://mmx.vercel.app",
   url: "https://mmx.vercel.app",
@@ -20,4 +20,4 @@ export const siteConfig = {
     email: "work@themba.dev",
     website: "https://themba.dev",
   },
-};
+}

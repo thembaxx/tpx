@@ -1,17 +1,17 @@
-import "@fontsource/geist-sans/300.css";
-import "@fontsource/geist-sans/400.css";
-import "@fontsource/geist-sans/500.css";
-import "@fontsource/geist-sans/600.css";
-import "@fontsource/geist-sans/700.css";
-import "@fontsource/geist-sans/800.css";
-
-import type { ReactNode } from "react";
+import type { ReactNode } from "react"
 import {
-  Outlet,
   createRootRoute,
   HeadContent,
+  Outlet,
   Scripts,
-} from "@tanstack/react-router";
+} from "@tanstack/react-router"
+import "@fontsource/geist-sans/300.css"
+import "@fontsource/geist-sans/400.css"
+import "@fontsource/geist-sans/500.css"
+import "@fontsource/geist-sans/600.css"
+
+import "@fontsource/geist-sans/700.css"
+import "@fontsource/geist-sans/800.css"
 
 export const Route = createRootRoute({
   head: () => ({
@@ -29,14 +29,14 @@ export const Route = createRootRoute({
     ],
   }),
   component: RootComponent,
-});
+})
 
 function RootComponent() {
   return (
     <RootDocument>
       <Outlet />
     </RootDocument>
-  );
+  )
 }
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
@@ -50,5 +50,5 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <Scripts />
       </body>
     </html>
-  );
+  )
 }

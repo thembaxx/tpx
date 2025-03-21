@@ -2,8 +2,8 @@
 // import * as fs from "node:fs";
 // import { createFileRoute, useRouter } from "@tanstack/react-router";
 // import { createServerFn } from "@tanstack/react-start";
-import { Button } from "@/components/ui/button";
-import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button"
+import { createFileRoute } from "@tanstack/react-router"
 
 // const filePath = "count.txt";
 
@@ -29,7 +29,7 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({
   component: Home,
   // loader: async () => await getCount(),
-});
+})
 
 function Home() {
   // const router = useRouter();
@@ -48,5 +48,5 @@ function Home() {
     >
       Add 1 to dawg?
     </Button>
-  );
+  )
 }
