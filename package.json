@@ -1,29 +1,33 @@
 {
   "name": "psx",
   "private": true,
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "vite --port 3000",
-    "build": "vite build && tsc",
+    "build": "vite build && publint --strict",
     "serve": "vite preview",
     "test": "vitest run",
-    "lint": "vite lint"
+    "lint": "vite --lint"
   },
   "dependencies": {
+    "@fontsource/geist-sans": "^5.2.5",
     "@prisma/client": "6.5.0",
     "@radix-ui/react-slot": "^1.1.2",
-    "@tailwindcss/vite": "^4.0.6",
-    "@tanstack/react-router": "^1.114.3",
-    "@tanstack/react-router-devtools": "^1.114.3",
+    "@tailwindcss/vite": "^4.0.15",
+    "@tanstack/react-router": "^1.114.25",
+    "@tanstack/react-router-devtools": "^1.114.25",
     "@tanstack/react-start": "^1.114.25",
-    "@tanstack/router-plugin": "^1.114.3",
+    "@tanstack/router-plugin": "^1.114.25",
+    "@tanstack/vite-config": "^0.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.476.0",
+    "lucide-react": "^0.483.0",
+    "publint": "^0.3.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.0.2",
-    "tailwindcss": "^4.0.6",
+    "tailwindcss": "^4.0.15",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
@@ -31,23 +35,45 @@
     "@prisma/extension-optimize": "^1.1.8",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.2.0",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.22.0",
     "eslint-plugin-react": "^7.37.4",
     "globals": "^16.0.0",
     "jsdom": "^26.0.0",
     "prisma": "^6.5.0",
-    "typescript": "^5.7.2",
+    "typescript": "^5.8.2",
     "typescript-eslint": "^8.27.0",
-    "vite": "^6.1.0",
-    "vitest": "^3.0.5",
+    "vite": "^6.2.2",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.0.9",
     "web-vitals": "^4.2.4"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "esbuild"
-    ]
+      "@parcel/watcher",
+      "@prisma/client",
+      "@prisma/engines",
+      "esbuild",
+      "msw",
+      "prisma"
+    ],
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "eslint": "9"
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "rules": {
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off"
+    }
   }
 }
